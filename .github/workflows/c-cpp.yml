@@ -16,5 +16,4 @@ jobs:
     - name: Build
       run: |
         msbuild ConsoleApplication1.vcxproj /p:Configuration=Release /p:Platform=x64
-      
-        dir /s /b /a:-D *.exe
+        Get-ChildItem -Recurse -Filter *.exe | ForEach-Object { Write-Output $_.FullName }
