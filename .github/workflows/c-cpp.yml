@@ -23,4 +23,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: cpp-build-artifacts
-        path: ./NeuvilletteQuickStart_build
+        path: .\NeuvilletteQuickStart_build
