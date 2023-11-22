@@ -2,6 +2,7 @@ name: C++ Build
 
 on: [push]
 
+
 jobs:
   build:
     runs-on: windows-latest
@@ -16,8 +17,9 @@ jobs:
     - name: Build
       run: |
         msbuild ConsoleApplication1.vcxproj /p:Configuration=Release /p:Platform=x64 /p:OutDir=NeuvilletteQuickStart_build /p:TargetName=NeuvilletteQuickStart
-  
+        
         chcp 65001
+        set "LC_ALL=C.UTF-8"
       working-directory: ${{ github.workspace }}
 
     - name: Upload build artifacts
