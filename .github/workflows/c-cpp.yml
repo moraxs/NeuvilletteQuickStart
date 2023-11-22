@@ -1,5 +1,10 @@
 name: C++ Build
-on: [push]
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -13,7 +18,11 @@ jobs:
       uses: microsoft/setup-msbuild@v1
 
     - name: Build
-      run: msbuild ConsoleApplication1.vcxproj /p:Configuration=Release /p:Platform=x64 /p:OutDir=./NeuvilletteQuickStart_build /p:TargetName=NeuvilletteQuickStart
+      run: |
+        msbuild ConsoleApplication1.vcxproj /p:Configuration=Release /p:Platform=x64 /p:OutDir=./NeuvilletteQuickStart_build /p:TargetName=NeuvilletteQuickStart
+      
+        chcp 65001
+      working-directory: ./NeuvilletteQuickStart_build
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
