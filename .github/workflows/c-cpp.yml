@@ -15,13 +15,13 @@ jobs:
 
     - name: Build
       run: |
-        msbuild ConsoleApplication1.vcxproj /p:Configuration=Release /p:Platform=x64 /p:OutDir=${{ github.workspace }}\NeuvilletteQuickStart_build /p:TargetName=NeuvilletteQuickStart
-        
+        msbuild ConsoleApplication1.vcxproj /p:Configuration=Release /p:Platform=x64 /p:OutDir=NeuvilletteQuickStart_build /p:TargetName=NeuvilletteQuickStart
+  
         chcp 65001
-      working-directory: ${{ github.workspace }}\NeuvilletteQuickStart_build
+      working-directory: ${{ github.workspace }}
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
       with:
         name: cpp-build-artifacts
-        path: ${{ github.workspace }}\NeuvilletteQuickStart_build
+        path: NeuvilletteQuickStart_build
