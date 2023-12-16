@@ -45,15 +45,15 @@ int main() {
         // 继续执行程序...
     }
 
-    std::cout << " 说明:按住“-”键以高速旋转，该程序使用“mouse_event”模拟鼠标移动，没有注入内存，理论不会封号，如果不放心，可以使用云原神. \n Written by Morax";
+    std::cout << " 说明:按住“`”键以高速旋转，该程序使用“mouse_event”模拟鼠标移动，没有注入内存，理论不会封号，如果不放心，可以使用云原神. \n Written by Morax";
 
     while (true) {
-        if (GetKeyState(VK_OEM_MINUS) < 0) {
-            mouse_event(MOUSEEVENTF_MOVE, 800, 0, 0, 0);
-        }
-
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+    if (GetKeyState(VK_OEM_3) < 0) {
+        mouse_event(MOUSEEVENTF_MOVE, 800, 0, 0, 0);
     }
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(1));
+}
 
     return 0;
 }
